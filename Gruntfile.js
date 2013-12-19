@@ -308,6 +308,10 @@ module.exports = function (grunt) {
         'compass',
         'copy:styles'
       ],
+      protractor: [
+        'protractor:feature1',
+        'protractor:feature2'
+      ],
       dist: [
         'compass:dist',
         'copy:styles',
@@ -349,7 +353,31 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+    protractor: {
+      options: {
+        //configFile: 'node_modules/protractor/referenceConf.js', // Default config file
+        keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+        args: {
+            // Arguments passed to the command
+        }
+      },
+      feature1: {
+        options: {
+          configFile:'test/scenario/conf/featureList1.js', // Target-specific config file
+          args: {} // Target-specific arguments
+        }
+      },
+      feature2: {
+        options: {
+          configFile:'test/scenario/conf/featureList2.js', // Target-specific config file
+          args: {} // Target-specific arguments
+        }
+      }
     }
+
+
   });
 
 
@@ -380,6 +408,10 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('ptr', [
+    'test',
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
@@ -398,6 +430,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
+    'concurrent:protractor'
   ]);
 };
