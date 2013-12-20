@@ -361,19 +361,23 @@ module.exports = function (grunt) {
         keepAlive: true, // If false, the grunt process stops when the test fails.
         noColor: false, // If true, protractor will not use colors in its output.
         args: {
-            // Arguments passed to the command
+            baseUrl: 'http://0.0.0.0:9002/#/' //config for all protractor tasks
         }
       },
       feature1: {
         options: {
           configFile:'test/scenario/conf/featureList1.js', // Target-specific config file
-          args: {} // Target-specific arguments
+          args: {
+            baseUrl: 'http://0.0.0.0:9002/#/'
+          }
         }
       },
       feature2: {
         options: {
           configFile:'test/scenario/conf/featureList2.js', // Target-specific config file
-          args: {} // Target-specific arguments
+          args: {
+            baseUrl: 'http://0.0.0.0:9002/#/'
+          }
         }
       }
     }
