@@ -1,6 +1,24 @@
 // Generated on 2013-12-18 using generator-angular 0.6.0
 'use strict';
 
+var os = require('os');
+
+function getIpAddress() {
+  var ipAddress = null;
+  var ifaces = os.networkInterfaces();
+
+  function processDetails(details) {
+    if (details.family === 'IPv4' && details.address !== '127.0.0.1' && !ipAddress) {
+      ipAddress = details.address;
+    }
+  }
+
+  for (var dev in ifaces) {
+    ifaces[dev].forEach(processDetails);
+  }
+  return ipAddress;
+}
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -361,23 +379,17 @@ module.exports = function (grunt) {
         keepAlive: true, // If false, the grunt process stops when the test fails.
         noColor: false, // If true, protractor will not use colors in its output.
         args: {
-            baseUrl: 'http://0.0.0.0:9002/#/' //config for all protractor tasks
+          baseUrl: 'http://'+getIpAddress()+':9002/' //config for all protractor tasks
         }
       },
       feature1: {
         options: {
           configFile:'test/scenario/conf/featureList1.js', // Target-specific config file
-          args: {
-            baseUrl: 'http://0.0.0.0:9002/#/'
-          }
         }
       },
       feature2: {
         options: {
           configFile:'test/scenario/conf/featureList2.js', // Target-specific config file
-          args: {
-            baseUrl: 'http://0.0.0.0:9002/#/'
-          }
         }
       }
     }
@@ -414,6 +426,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('ptr', [
+    'newer:jshint',
     'clean:server',
     'build',
     'connect:dist',

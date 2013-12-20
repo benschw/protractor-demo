@@ -14,7 +14,6 @@
 	yo angular
 	bower install
 
-	npm install protractor --save-dev
 	npm install grunt-protractor-runner --save-dev
 
 	grunt

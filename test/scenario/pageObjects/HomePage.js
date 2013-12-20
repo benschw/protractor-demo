@@ -21,8 +21,8 @@ var HomePage = function () {
 
 HomePage.prototype = {
     navigate: function () {
-//       browser.get('http://' + getIpAddress() + ':9002/');
-       browser.get('/');
+        //browser.get('http://' + getIpAddress() + ':9002/');
+        browser.get('/');
     },
     getList: function () {
 //        return element.all(by.repeater('thing in awesomeThings'));
