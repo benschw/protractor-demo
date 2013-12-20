@@ -106,7 +106,6 @@ register task
 
 	grunt.registerTask('ptr', [
 		'clean:server',
-		'build',
 		'connect:dist',
 		'concurrent:protractor'
 	]);
