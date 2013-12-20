@@ -16,7 +16,7 @@ describe('homepage', function() {
 
         expect(list.count()).toEqual(3);
         expect(list.get(0).getText()).toEqual('HTML5 Boilerplate');
-        expect(list.get(1).getText()).toEqual('AngularJS');
+        expect(list.get(1).getText()).toEqual('Angular');
         expect(list.get(2).getText()).toEqual('Karma');
     });
 

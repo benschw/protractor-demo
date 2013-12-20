@@ -16,7 +16,7 @@ describe('homepage', function() {
         var subHeader = homePage.subHeader();
 
         expect(header.getText()).toEqual('\'Allo, \'Allo!');
-        expect(subHeader.getText()).toEqual('Enjoy coding! - Yeoman');
+        expect(subHeader.getText()).toEqual('protractor demo');
     });
 
 });

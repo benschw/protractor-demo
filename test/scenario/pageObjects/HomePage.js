@@ -21,10 +21,11 @@ var HomePage = function () {
 
 HomePage.prototype = {
     navigate: function () {
-        browser.get('http://' + getIpAddress() + ':9001/');
+        browser.get('http://' + getIpAddress() + ':9002/');
     },
     getList: function () {
-        return element.all(by.repeater('thing in awesomeThings'));
+//        return element.all(by.repeater('thing in awesomeThings'));
+        return element.all(by.css('h4'));
     },
     header: function () {
         return element(by.css('h1'));
