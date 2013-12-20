@@ -426,7 +426,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('ptr', [
-    'newer:jshint',
     'clean:server',
     'build',
     'connect:dist',
@@ -451,8 +450,8 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
+    'ptr',
     'build',
     'connect:dist',
-    'concurrent:protractor'
   ]);
 };
