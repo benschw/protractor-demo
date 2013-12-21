@@ -19,11 +19,9 @@
 	npm install protractor --save-dev
 	npm install grunt-protractor-runner --save-dev
 
-
+	# add in protractor test scenarios
 	cp -r ../protractor-demo-bak/test/scenario/ test/scenario
 	
-
-	grunt
 
 
 ### protractor config
@@ -89,7 +87,7 @@ update "connect.dist" to use port 9002 and ip 0.0.0.0
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       ...
