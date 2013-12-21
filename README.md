@@ -24,7 +24,7 @@
 	
 
 
-### protractor config
+### Gruntfile Updates
 after "karma" section
 
     protractor: {
@@ -69,9 +69,6 @@ at top
 	}
 
 
-
-
-### Concurrent
 in "concurrent" section
 
       protractor: [
@@ -81,7 +78,7 @@ in "concurrent" section
 
 
 
-update "connect.dist" to use port 9002 and ip 0.0.0.0
+update "connect.options" to use `hostname: '0.0.0.0'`, and "connect.dist" to use `port: 9002` 
 
     connect: {
       options: {
